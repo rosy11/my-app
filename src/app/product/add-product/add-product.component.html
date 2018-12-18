@@ -1,0 +1,45 @@
+<div class="container">
+	<h2>Add Product</h2>
+	<form [formGroup]="form" class="form-horizontal">
+		<div class="form-group" >
+	      	<label class="control-label col-sm-2" for="pname">Product Name:</label>
+		    <div class="col-sm-6">
+		        <input type="text" class="form-control" id="pname" placeholder="Enter Product Name" formControlName="pname">
+		        <div *ngIf="pname.touched && pname.invalid" class="alert alert-danger">
+		        	<div *ngIf="pname.errors.required">Product Name is required</div>
+		        	<div *ngIf="pname.errors.minlength">Product Name must be of minimum {{pname.errors.minlength.requiredLength}} characters</div>
+		        	
+		        </div>
+	      	</div>
+	      	
+	    </div>
+
+	    <div class="form-group">
+	      	<label class="control-label col-sm-2" for="uid">Unique Id:</label>
+		    <div class="col-sm-6">
+		        <input type="text" class="form-control" id="uid" placeholder="Enter Unique Id" formControlName="uid">
+		        <div class="alert alert-danger" *ngIf="uid.touched && uid.invalid">
+		        	<div *ngIf="uid.errors.required">Product Id is required</div>
+		        	<div *ngIf="uid.errors.cannotContainSpace">Product Id cannot contain space</div>
+		        </div>
+	      	</div>
+	    </div>
+	    <div class="form-group">
+		  	<label class="control-label col-sm-2" for="status">Status:</label>
+		  	<div class="col-sm-6">
+			  	<select class="form-control" formControlName="status" id="status">
+			  		<option value="">Please Select</option>
+				    <option value="1">Active</option>
+				    <option value="0">Inactive</option>
+				</select>
+				<div class="alert alert-danger" *ngIf="status.touched && status.invalid">Status is required</div>
+		  	</div>
+		</div>
+		<div class="form-group">        
+	      	<div class="col-sm-offset-2 col-sm-6">
+	        	<button type="submit" class="btn btn-primary">Submit</button>&nbsp;&nbsp;
+	        	<button type="button" class="btn btn-info" routerLink="/product">Back</button>
+	    	</div>
+    	</div>
+	</form>
+</div>
