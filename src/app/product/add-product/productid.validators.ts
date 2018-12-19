@@ -6,4 +6,20 @@ export class productidValidators{
 			return { cannotContainSpace: true};
 		return null;
 	}
+
+	static shouldBeunique(c: AbstractControl): Promise <ValidationErrors | null>{
+
+		return new Promise((resolve,reject) => {
+
+			setTimeout(() => {
+				if(c.value === 'product1')
+					resolve({shouldBeunique : true});
+				else
+					resolve(null);
+			}, 2000);
+
+		});
+	}
+
+	
 }

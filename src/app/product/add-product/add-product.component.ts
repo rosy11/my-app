@@ -15,9 +15,10 @@ export class AddProductComponent {
 			Validators.minLength(3)
 		]),
 		uid: new FormControl('', [
-		Validators.required,
-		productidValidators.cannotContainSpace
-		]),
+			Validators.required,
+			productidValidators.cannotContainSpace,
+			
+		], productidValidators.shouldBeunique),
 		status: new FormControl('', Validators.required)
 	});
 
@@ -31,5 +32,12 @@ export class AddProductComponent {
 
 	get status(){
 		return this.form.get('status');
+	}
+
+	addProduct(){
+	//console.log('hi');
+		this.form.setErrors({
+			invalidProduct:true		
+		});
 	}
 }

@@ -4,12 +4,17 @@ import { UserComponent } from './user/user.component';
 import { AddUserComponent } from './user/add-user/add-user.component';
 import { ProductComponent } from './product/product.component';
 import { AddProductComponent } from './product/add-product/add-product.component';
+import { OrderComponent } from './order/order.component';
+import { AddOrderComponent } from './order/add-order/add-order.component';
 
 const routes: Routes = [
   {path:'user', component:UserComponent},
   {path:'user/add', component:AddUserComponent},
   {path:'product', component:ProductComponent},
-  {path:'product/addproduct', component:AddProductComponent}
+  {path:'product/addproduct', component:AddProductComponent},
+  {path:'order', component:OrderComponent},
+  {path:'order/addorder',component:AddOrderComponent},
+  
 ];
 
 @NgModule({
