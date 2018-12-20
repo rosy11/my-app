@@ -7,13 +7,13 @@
 </div>
 
 <ul class="nav nav-pills" role="tablist">
-  <li class="active">
+  <li [ngClass]="{'active': selectedItem == 'user'}" (click)="listClick('user')">
     <a routerLink="user">User Management</a>
   </li>
-  <li>
+  <li [ngClass]="{'active': selectedItem == 'product'}" (click)="listClick('product')">
     <a routerLink="product">Product Management</a>
   </li>
-  <li>
+  <li [ngClass]="{'active': selectedItem == 'order'}" (click)="listClick('order')">
     <a routerLink="order">Order Management</a>
   </li>
 </ul>

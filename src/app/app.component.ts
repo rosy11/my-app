@@ -7,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'VR Admin';
+  	title = 'VR Admin';
+
+  	selectedItem = 'user';
+
+  	listClick(newValue) {
+	    this.selectedItem = newValue;  
+	}
 }

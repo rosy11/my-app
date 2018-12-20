@@ -1,48 +1,107 @@
-<div class="container">
-  <h2>Add Product</h2>
-  <form [formGroup]="form" class="form-horizontal" (ngSubmit)="addProduct();">
-  <!-- <div class="alert alert-danger" *ngIf="form.errors">Invalid </div> -->
-    <div class="form-group" >
-          <label class="control-label col-sm-2" for="pname">Product Name:</label>
-        <div class="col-sm-6">
-            <input type="text" class="form-control" id="pname" placeholder="Enter Product Name" formControlName="pname">
-            <div *ngIf="pname.touched && pname.invalid" class="alert alert-danger">
-              <div *ngIf="pname.errors.required">Product Name is required</div>
-              <div *ngIf="pname.errors.minlength">Product Name must be of minimum {{pname.errors.minlength.requiredLength}} characters</div>
-              
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+  <mat-tab-group dynamicHeight [selectedIndex]="selectedIndex">
+  <mat-tab label="Order Details">
+   <div class="clearfix"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <label class="control-label col-sm-2" for="orderid">Order ID:</label>
+              <div class="col-md-6">
+                <input type="text" class="form-control" id="orderid" placeholder="Enter Order ID">
+                <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="row">
+              <label class="control-label col-sm-2" for="orderamount">Order Amount:</label>
+              <div class="col-md-6">
+                <input type="text" class="form-control" id="orderamount" placeholder="Enter Order Amount">
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="row">        
+              <div class="col-sm-offset-2 col-sm-6">
+                <button type="submit" class="btn btn-primary nexttab" (click)="clickMe(1)">Next</button>&nbsp;&nbsp;
+                <div class="clearfix"></div>
+              </div>
             </div>
           </div>
-          
+        </div>
       </div>
+    </mat-tab>
+    <mat-tab label="Billing Address">
+     <div class="clearfix"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <label class="control-label col-sm-2" for="name">Customer Name:</label>
+              <div class="col-md-6">
+                <input type="text" class="form-control" id="name" placeholder="Enter Customer name">
+                <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="row">
+              <label class="control-label col-sm-2" for="billing_address">Billing Address:</label>
+              <div class="col-md-6">
+                <input type="text" class="form-control" id="billing_address" placeholder="Enter Billing Address">
+                <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="row">
+              <label class="control-label col-sm-2" for="phone_number">Phone Number:</label>
+              <div class="col-md-6">
+                <input type="text" class="form-control" id="phone_number" placeholder="Enter Phone Number">
+                <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="row">        
+              <div class="col-sm-offset-2 col-sm-6">
+                <button type="submit" class="btn btn-primary" (click)="clickMe(2)">Next</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-info" (click)="clickMe(0)">Back</button>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+       </div>
+    </mat-tab>
+    <mat-tab label="Shipping Address">
+     <div class="clearfix"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <label class="control-label col-sm-2" for="shipping_name">Name:</label>
+              <div class="col-md-6">
+                <input type="text" class="form-control" id="shipping_name" placeholder="Enter Name">
+                <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="row">
+              <label class="control-label col-sm-2" for="shipping_address">Shipping Address:</label>
+              <div class="col-md-6">
+                <input type="text" class="form-control" id="shipping_address" placeholder="Enter Shipping Address">
+                <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="row">
+              <label class="control-label col-sm-2" for="mobile_number">Mobile Number:</label>
+              <div class="col-md-6">
+                <input type="text" class="form-control" id="mobile_number" placeholder="Enter Mobile Number">
+                <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="row">        
+              <div class="col-sm-offset-2 col-sm-6">
+                <button type="submit" class="btn btn-primary">Submit</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-info" (click)="clickMe(1)">Back</button>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
 
-      <div class="form-group">
-          <label class="control-label col-sm-2" for="uid">Unique Id:</label>
-        <div class="col-sm-6">
-            <input type="text" class="form-control" id="uid" placeholder="Enter Unique Id" formControlName="uid">
-            <div *ngIf="uid.pending">Checking for uniqueness...</div>
-            <div class="alert alert-danger" *ngIf="uid.touched && uid.invalid">
-              <div *ngIf="uid.errors.required">Product Id is required</div>
-              <div *ngIf="uid.errors.cannotContainSpace">Product Id cannot contain space</div>
-              <div *ngIf="uid.errors.shouldBeunique">Product Id already taken</div>
-            </div>
-          </div>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="status">Status:</label>
-        <div class="col-sm-6">
-          <select class="form-control" formControlName="status" id="status">
-            <option value="">Please Select</option>
-            <option value="1">Active</option>
-            <option value="0">Inactive</option>
-        </select>
-        <div class="alert alert-danger" *ngIf="status.touched && status.invalid">Status is required</div>
-        </div>
-    </div>
-    <div class="form-group">        
-          <div class="col-sm-offset-2 col-sm-6">
-            <button type="submit" class="btn btn-primary">Submit</button>&nbsp;&nbsp;
-            <button type="button" class="btn btn-info" routerLink="/product">Back</button>
-        </div>
-      </div>
-  </form>
-</div>
