@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { productidValidators } from './productid.validators';
 
 @Component({
@@ -19,8 +19,24 @@ export class AddProductComponent {
 			productidValidators.cannotContainSpace,
 			
 		], productidValidators.shouldBeunique),
-		status: new FormControl('', Validators.required)
+		productAvail: new FormArray([], Validators.required),
+		status: new FormControl('', Validators.required),
+
 	});
+
+	addProductcities(productCities: HTMLInputElement){
+  		this.productCity.push(new FormControl(productCities.value));
+  		productCities.value = '';
+  	}
+
+  	removeCity(cityName: FormControl){
+  		let index = this.productCity.controls.indexOf(cityName);
+  		this.productCity.removeAt(index);
+  	}
+
+  	get productCity(){
+  		return this.form.get('productAvail') as FormArray;
+  	}
 
 	get pname(){
 		return this.form.get('pname');
@@ -34,8 +50,8 @@ export class AddProductComponent {
 		return this.form.get('status');
 	}
 
-	addProduct(){
-	//console.log('hi');
+	addProduct(f){
+	console.log(f.value);
 		this.form.setErrors({
 			invalidProduct:true		
 		});

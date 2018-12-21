@@ -12,5 +12,6 @@ export class AddOrderComponent {
   	clickMe(val: number){
     	this.selectedIndex=val;
   	}
-  
+  	
+  	
 }

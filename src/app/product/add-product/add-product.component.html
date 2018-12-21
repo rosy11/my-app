@@ -1,6 +1,6 @@
 <div class="container">
 	<h2>Add Product</h2>
-	<form [formGroup]="form" class="form-horizontal" (ngSubmit)="addProduct();">
+	<form [formGroup]="form" class="form-horizontal" (ngSubmit)="addProduct(form);">
 	<!-- <div class="alert alert-danger" *ngIf="form.errors">Invalid </div> -->
 		<div class="form-group" >
 	      	<label class="control-label col-sm-2" for="pname">Product Name:</label>
@@ -25,6 +25,18 @@
 		        	<div *ngIf="uid.errors.cannotContainSpace">Product Id cannot contain space</div>
 		        	<div *ngIf="uid.errors.shouldBeunique">Product Id already taken</div>
 		        </div>
+	      	</div>
+	    </div>
+	    <div class="form-group">
+	      	<label class="control-label col-sm-2" for="uid">Product Availablity Cities:</label>
+		    <div class="col-sm-6">
+		        <input type="text" class="form-control" id="productAvail" placeholder="Product Availablity Cities" (keyup.enter)="addProductcities(productCities)" #productCities>
+		        <ul class="list-group">
+		        	<li *ngFor="let productCity of productCity.controls" class="list-group-item" (click)="removeCity(productCity)">
+		        		{{ productCity.value }}
+		        	</li>
+		        </ul>
+		        
 	      	</div>
 	    </div>
 	    <div class="form-group">

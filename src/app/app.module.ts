@@ -14,6 +14,8 @@ import { AddProductComponent } from './product/add-product/add-product.component
 import { productidValidators } from './product/add-product/productid.validators';
 import { OrderComponent } from './order/order.component';
 import { AddOrderComponent } from './order/add-order/add-order.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ChangePasswordValidators } from './change-password/changepassword.validators';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { AddOrderComponent } from './order/add-order/add-order.component';
     ProductComponent,
     AddProductComponent,
     OrderComponent,
-    AddOrderComponent
+    AddOrderComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
