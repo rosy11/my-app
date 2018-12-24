@@ -7,6 +7,7 @@ import { AddProductComponent } from './product/add-product/add-product.component
 import { OrderComponent } from './order/order.component';
 import { AddOrderComponent } from './order/add-order/add-order.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { PostComponent } from './post/post.component';
 
 const routes: Routes = [
   {path:'user', component:UserComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path:'order', component:OrderComponent},
   {path:'order/addorder',component:AddOrderComponent},
   {path:'changepassword',component:ChangePasswordComponent},
+  {path:'post',component:PostComponent},
   
 ];
 

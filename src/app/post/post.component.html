@@ -1,0 +1,9 @@
+<div class="container">
+	<h2>List Of Posts</h2>
+	<input type="text" class="form-control" placeholder="Enter Post" (keyup.enter)="addPost(title)" #title>
+	<ul *ngFor="let post of posts" class="list-group">
+		<li class="list-group-item">
+			<strong>ID:</strong>{{post.id}} - <strong>Title-</strong> {{post.title}}
+		</li>
+	</ul>
+</div>

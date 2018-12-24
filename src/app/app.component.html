@@ -16,6 +16,9 @@
   <li [ngClass]="{'active': selectedItem == 'order'}" (click)="listClick('order')">
     <a routerLink="order">Order Management</a>
   </li>
+  <li [ngClass]="{'active': selectedItem == 'post'}" (click)="listClick('post')">
+    <a routerLink="post">Post Management</a>
+  </li>
   <li [ngClass]="{'active': selectedItem == 'changepassword'}" (click)="listClick('changepassword')">
     <a routerLink="changepassword">Change Password</a>
   </li>

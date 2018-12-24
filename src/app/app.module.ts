@@ -1,9 +1,11 @@
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +18,7 @@ import { OrderComponent } from './order/order.component';
 import { AddOrderComponent } from './order/add-order/add-order.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ChangePasswordValidators } from './change-password/changepassword.validators';
+import { PostComponent } from './post/post.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import { ChangePasswordValidators } from './change-password/changepassword.valid
     AddProductComponent,
     OrderComponent,
     AddOrderComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,8 @@ import { ChangePasswordValidators } from './change-password/changepassword.valid
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatTabsModule
+    MatTabsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
